@@ -1,0 +1,23 @@
+{
+  "viagemvalida": {
+    "acompanhante": "joao victor krumpos do carmo",
+    "dataPartida": "05-04-2023",
+    "dataRetorno": "05-05-2021",
+    "localDeDestino": "Londrina",
+    "regiao": "Norte"
+  },
+  "viageminvalida": {
+    "acompanhante": "null",
+    "dataPartida": "null",
+    "dataRetorno": "null",
+    "localDeDestino": "null",
+    "regiao": "null"
+  },
+  "viagemsemcamposobrigatorios": {
+
+    "dataPartida": "null",
+    "dataRetorno": "null",
+    "localDeDestino": "null",
+    "regiao": "null"
+  }
+}

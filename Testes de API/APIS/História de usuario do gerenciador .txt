@@ -1,0 +1,21 @@
+História de usuario do gerenciador de viagens 
+
+Como um usuário, eu gostaria de ver  todas as viagens já cadastradas, para que eu possa escolher qual viagem quero ir.
+
+Requisitos e especificações 
+1- A API deve ser capaz de retornar todas as viagens cadastradas  em uma objeto json ordenada po id, com as seguintes informações para cada viagem: identificador único, nome do acompanhante, destino, data de partida, data de retorno
+2-A API deve ser capaz de retornar as informações detalhadas de uma viagem específica com base em um identificador exclusivo, incluindo todos os campos listados acima.
+
+Como um usuário, eu gostaria de selecionar uma viagem específica, para que eu possa ver seus detalhes e decidir se desejo altera-la 
+
+1-A API deve permitir que os usuários alterem as informações de uma viagem específica com base em seu identificador exclusivo. Os usuários devem ser capazes de alterar qualquer campo, exceto o identificador exclusivo
+
+
+
+Como um usuário, eu gostaria de cadastrar uma nova viagem, para que outras pessoas possam reservá-la.
+
+1-A API deve permitir que os usuários cadastrem novas viagens, fornecendo as seguintes informações: nome da viagem, destino, data de partida, data de retorno, preço e número de assentos disponíveis. A API deve gerar automaticamente um identificador exclusivo para a nova viagem.
+
+Como um usuário, eu gostaria de excluir uma viagem específica, caso não tenha mais interesse 
+
+A API deve permitir que os usuários excluam uma viagem específica com base em seu identificador exclusivo. A API deve retornar uma mensagem de confirmação após a exclusão da viagem.

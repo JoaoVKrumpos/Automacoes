@@ -1,0 +1,24 @@
+INHERITING-Herda configurações de autorização da coleção
+
+NO AUTH- Não será enviado nenhuma informação de autorização pelo postman
+
+API KEY- Informa a chave da API e o valor para autenticação dos requests 
+
+BASIC AUTH-Autenticação basica de usuario e senha 
+
+Bearer token: Garante permissão para as requisições através de uma chave de acesso
+
+
+
+------------------------------------------------------------------------------------
+Usando variaveis 
+
+Global-Visivel em todo workspace 
+
+Collection- visivel em todos os requests de uma coleção
+
+enviroment-Permite fazer o chaveamento entre ambientes 
+
+data - fornecidas de fontes externas ,como CSV,JSON
+
+local-Variavel temporaria ,visivel apenas em uma requisição 

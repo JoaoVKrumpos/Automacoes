@@ -1,0 +1,282 @@
+Cassos de teste baseados na experiência:
+
+CT01
+
+Cenário: Validar que é gerado um token de administrador valido 
+Dado:que esteja no serviço "http://localhost:8089/api/v1/auth"
+And:Preencher o body com as informações validas de um administrador"admin@email.com" e senha "654321"
+Quando:enviar a requisição com o metodo Post 
+Então:será apresentado status code 201 
+e o token sera gerado 
+
+
+CT02
+
+Cenário:Gerar token com dados invalidos 
+Dado:que esteja no serviço "http://localhost:8089/api/v1/auth"
+And:Preencher o body com as informações invalidas de um administrador"email" e "senha"
+Quando:enviar a requisição com o metodo Post 
+Então:será apresentado status code 401 
+e o token não será gerado 
+
+
+CT03
+
+Cenário:Gerar token com dados nulos
+Dado:que esteja no serviço "http://localhost:8089/api/v1/auth"
+And:Preencher o body com as informações nulas de um administrador"email" e "senha"
+Quando:enviar a requisição com o metodo Post 
+Então:será apresentado status code 404 
+e o token não será gerado 
+
+
+CT04
+
+Cenário: Validar que é gerado um token de usuario valido 
+Dado:que esteja no serviço "http://localhost:8089/api/v1/auth"
+And:Preencher o body com as informações validas de um administrador"usuario@email.com" e senha "123456"
+Quando:enviar a requisição com o metodo Post 
+Então:será apresentado status code 201
+ e o token sera gerado 
+
+
+
+CT05
+enário:Gerar token com dados invalidos 
+Dado:que esteja no serviço "http://localhost:8089/api/v1/auth"
+And:Preencher o body com as informações invalidas de um usuario"email" e "senha"
+Quando:enviar a requisição com o metodo Post 
+Então:será apresentado status code 401 
+e o token não será gerado 
+
+
+CT06
+
+Cenário:Gerar token com dados nulos
+Dado:que esteja no serviço "http://localhost:8089/api/v1/auth"
+And:Preencher o body com as informações nulas de um usuario "email" e "senha"
+Quando:enviar a requisição com o metodo Post 
+Então:será apresentado status code 404 
+e o token não será gerado
+
+CT07
+
+Cenário:Gerar token com email e senha diferentes do que foi definido 
+Dado:que esteja no serviço "http://localhost:8089/api/v1/auth"
+And:Preencher o body com as informações nulas de um usuario "email" e "senha"
+Quando:enviar a requisição com o metodo Post 
+Então:será apresentado status code 404 e 
+o token não será gerado
+--------------------------------------------------------------------------------------------------
+
+CT08
+
+Cenário:Buscar viagens com token de administrador
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And:Preencher o header com o token de administrador
+Quando:enviar a requisição com o metodo Get 
+Então:não será retornado as viagens as viagens cadastradas 
+e apresentara status code 401
+
+CT09
+
+Cenário:Buscar viagens com token de usuario
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And:Preencher o header com o token de usuario
+Quando:enviar a requisição com o metodo Get 
+Então: será retornado as viagens cadastradas 
+e apresentara status code 201
+
+CT10
+
+Cenário:Buscar viagens sem o token
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And:não preencher o header com o token
+Quando:enviar a requisição com o metodo Get 
+Então: não será retornado as viagens cadastradas
+ e apresentara status code 401
+
+CT11
+
+Cenário:Buscar viagens passando query valda
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: preencher o header com o token
+And: preencher com a query a região de uma viagem cadastrada
+Quando:enviar a requisição com o metodo Get 
+Então:será retornado as viagens cadastradas nessa região 
+e apresenta satus code 201
+
+CT12
+
+Cenário:Buscar viagens passando query invalida
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: preencher o header com o token
+And: preencher com a query a região de uma viagem não cadastrada
+Quando:enviar a requisição com o metodo Get 
+Então: então não será retornado as viagens cadastradas nessa região 
+e apresenta o status code 404
+
+
+CT13
+
+Cenário:Cadastrar uma viagem valida 
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: preencher o header com o token valido de administrador 
+And: preencher o body com as informações validas
+Quando:enviar a requisição com o metodo Post
+Então: então a vaiagem é cadastrada 
+e apresenta o status code 201
+
+
+CT14
+
+Cenário:Cadastrar uma viagem com token de usuario
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: preencher o header com o token de usuario 
+And: preencher o body com as informações validas
+Quando:enviar a requisição com o metodo Post
+Então: então a viagem não é cadastrada
+ e apresenta o status code 401
+
+CT15
+
+Cenário:Cadastrar uma viagem sem token
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: não prencho o header com token  
+And: preencher o body com as informações validas
+Quando:enviar a requisição com o metodo Post
+Então: então a viagem não é cadastrada 
+e apresenta o status code 401
+
+CT16
+
+Cenário:Cadastrar uma viagem com dados nulos 
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: não prencho o header com token  
+And: preencher o body com as informações nulas
+Quando:enviar a requisição com o metodo Post
+Então: então a viagem não é cadastrada 
+e apresenta o status code 404
+
+CT17
+
+Cenário:Cadastrar uma viagem com dados nulos 
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: não prencho o header com token  
+And: preencher o body com as informações nulas
+Quando:enviar a requisição com o metodo Post
+Então: então a viagem não é cadastrada 
+e apresenta o status code 404
+
+CT18
+Cenário:Cadastrar uma viagem com dados invalidos
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: não prencho o header com token  
+And: preencher o body com as informações invalidas
+Quando:enviar a requisição com o metodo Post
+Então: então a viagem não é cadastrada 
+And:apresenta o status code 404
+
+
+CT19
+Cenário:Retornar uma viagem específica com body valido
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: preencho o header com token  
+And: passo um id valido no path
+Quando:enviar a requisição com o metodo get
+Então: então retorna a viagem especifica 
+And:retorna status code 201 
+
+CT20
+Cenário:Atualizar uma viagem valida
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: preencho o header com token  
+And: passo um id valido no path
+And: preencho o body com dados validos 
+Quando:enviar a requisição com o metodo post
+Então: então  a viagem especifica é alterada
+And:retorna status code 201
+
+CT21
+Cenário:Atualizar uma viagem com o token de usuario
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: preencho o header com token de usuario
+And: passo um id valido no path
+And: preencho o body com dados validos 
+Quando:enviar a requisição com o metodo post
+Então: então  a viagem especifica não é alterada
+And:retorna status code 401
+
+
+
+CT21
+Cenário:Atualizar uma viagem sem o token
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: não preencho o header 
+And: passo um id valido no path
+And: preencho o body com dados validos 
+Quando:enviar a requisição com o metodo post
+Então: então  a viagem especifica não é alterada
+And:retorna status code 401
+
+
+CT21
+Cenário:Atualizar uma viagem com id invalido
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: não preencho o header 
+And: passo um id invalido no path
+And: preencho o body com dados validos 
+Quando:enviar a requisição com o metodo post
+Então: então  a viagem especifica não é alterada
+And:retorna status code 404
+
+
+CT21
+Cenário:Atualizar uma viagem com o body invalido
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: não preencho o header 
+And: passo um id invalido no path
+And: preencho o body com dados validos 
+Quando:enviar a requisição com o metodo post
+Então: então  a viagem especifica não é alterada
+And:retorna status code 404
+
+CT22
+
+Cenário:Deletar uma viagem valida
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: não preencho o header 
+And: passo um id valido no path
+Quando:enviar a requisição com o metodo delete
+Então: então  a viagem especifica  é deletada
+And:retorna status code 201
+
+
+CT23
+
+Cenário:Deletar uma viagem invalida
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: não preencho o header 
+And: passo um id invalido no path
+Quando:enviar a requisição com o metodo delete
+Então: então  a viagem especifica não é deletada
+And:retorna status code 402
+
+
+Cenário:Deletar uma viagem sem o token
+Dado:que esteja no serviço "http://localhost:8089/api/v1/viagens"
+And: não preencho o header 
+And: passo um id invalido no path
+Quando:enviar a requisição com o metodo delete
+Então: então  a viagem especifica não é deletada
+And:retorna status code 401
+
+
+
+
+
+
+
+
+
+
